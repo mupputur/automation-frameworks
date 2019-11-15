@@ -1,0 +1,6 @@
+2019-11-14 08:14:24,964 - ERROR - Fail to find element: UserName
+2019-11-14 08:14:24,964 - ERROR - Fail to send the key to : UserName
+2019-11-14 08:14:27,007 - ERROR - Fail to find element: Password
+2019-11-14 08:14:27,007 - ERROR - Fail to send the key to : Password
+2019-11-14 08:14:29,048 - ERROR - Fail to find element: LogIn Button
+2019-11-14 08:14:29,048 - ERROR - Fail to click : LogIn Button
