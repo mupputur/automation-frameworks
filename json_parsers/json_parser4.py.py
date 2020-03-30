@@ -1,34 +1,28 @@
-
 import json
-
-    
-class Json:
-
-    def json_convert(self,path):
-        f=open(input_path.strip("\u202a"),'r')
-        data=f.read()
-        y=json.loads(data)
-        f.close()
-        print(y)
-        print('#'*50)
-        z=y["markers"]
-        z[0]["location"]=z[0].pop("position")
-        return y
-    
-    def To_json(self,y):
-        self.x=json.dumps(y,indent=4)
-        print('#'*50)
-        print(self.x)
-
-
-
+class JsonReader:
+    def read_json(self,input_path):
+        with open(input_path.strip("\u202a"),'r') as f:
+            data=f.read()
+            return data
+    def load_json(self,data):
+        load_data=json.loads(data)
+        return load_data
+    def get_markers(self,load_data):
+        try:
+            z=load_data["markers"]
+            z[0]["location"]=z[0].pop("position")
+            return load_data
+        except Exception as TypeError:
+            print("invalid key {}".format(TypeError))
+    def convert_json(self,y):
+        result=json.dumps(y,indent=4)
+        return result
 if __name__=="__main__":
-    j=Json()
-    input_path="D:\\py\\dependencies\\json\\input1.json"
-    out=j.json_convert(input_path)
-    print(out)
-    put=j.To_json(out)
-
-    
+    j=JsonReader()
+    input_path="..\\json_parsers\\input1.json"
+    json_data=j.read_json(input_path)
+    load=j.load_json(json_data)
+    get=j.get_markers(load)
+    conv_json=j.convert_json(get)
+    print(conv_json)
  
-#path="D:\\py\\dependencies\\json\\input1.json"
